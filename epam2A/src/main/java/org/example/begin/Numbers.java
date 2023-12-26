@@ -4,6 +4,7 @@ public class Numbers {
     private String id;
     private String num;
     private int numLength;
+    private int avg;
 
     public Numbers(String num) {
         this.num = num;
@@ -36,5 +37,13 @@ public class Numbers {
 
     public void setNumLength(int numLength) {
         this.numLength = numLength;
+    }
+
+    public int getAvg() {
+        return avg;
+    }
+
+    public void setAvg(int avg) {
+        this.avg = avg;
     }
 }

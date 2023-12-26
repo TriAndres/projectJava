@@ -10,4 +10,11 @@ public abstract class Task {
         this.arrayList = arrayList;
     }
     public abstract void task();
+
+    public void setNumLength() {
+        for (Numbers numbers : arrayList) {
+            int numLength = numbers.getNum().length();
+            numbers.setNumLength(numLength);
+        }
+    }
 }

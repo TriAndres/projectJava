@@ -1,24 +1,26 @@
 package org.example.menu;
 
 import org.example.console.ReadConsole;
+import org.example.file.WriteReadFile;
 import org.example.manage.ManageNumbers;
 import org.example.menu.menuList.MenuNumbers;
 import org.example.menu.menuList.MenuTask;
 
 public class MenuMain {
+    private WriteReadFile wr;
     private ManageNumbers manageNumbers;
     private MenuNumbers menuNumbers;
     private MenuTask menuTask;
 
     public MenuMain() {
+        wr = new WriteReadFile();
         manageNumbers = new ManageNumbers();
         menuNumbers = new MenuNumbers(manageNumbers);
         menuTask = new MenuTask(manageNumbers);
     }
 
     public void game() {
-        manageNumbers.getFile();
-
+        manageNumbers.getFile(wr);
         System.out.println("Зашли в приложение.");
         while (true) {
             menu();
@@ -29,8 +31,7 @@ public class MenuMain {
             }
             select(comanda);
         }
-
-        manageNumbers.setFile();
+        manageNumbers.setFile(wr);
     }
 
 

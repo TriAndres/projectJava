@@ -10,9 +10,7 @@ import java.util.ArrayList;
 
 public class ManageNumbers {
     private ArrayList<Numbers> arrayList = new ArrayList<>();
-    private WriteReadFile wr = new WriteReadFile();
-    private File file = new File("src\\main\\java\\org\\example\\file\\Numbers.txt");
-    //private String files = "src\\main\\java\\org\\example\\file\\Numbers.txt";
+    private String file = "src\\main\\java\\org\\example\\file\\Numbers.txt";
 
 
 
@@ -38,27 +36,22 @@ public class ManageNumbers {
         arrayList.clear();
     }
 
-    public void setFile() {
-         file = new File("src\\main\\java\\org\\example\\file\\Numbers.txt");
-
-        ArrayList<Numbers> list = getArrayList();
-        for (Numbers numbers : list) {
-            wr.setWriteFile(file, numbers.getId() + " " + numbers.getNum() + "\n");
-        }
-    }
-
-    public void getFile() {
-        try {
-            file = new File("src\\main\\java\\org\\example\\file\\Numbers.txt");
-            file.createNewFile();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        ArrayList<String> stringArrayList = wr.getReaderFile(file);
-        for (String string : stringArrayList) {
+    public void getFile(WriteReadFile wr) {
+        for (String string : wr.getReaderFile(file)) {
             String[] line = string.split(" +");
             add(new Numbers(line[0], line[1]));
         }
-        file.delete();
     }
+
+    public void setFile(WriteReadFile wr) {
+        ArrayList<String> list = new ArrayList<>();
+        for (Numbers numbers : arrayList) {
+            list.add(numbers.getId() + " " + numbers.getNum() + "\n");
+        }
+        wr.setWriteFile(file, list);
+    }
+
+
+
+
 }
