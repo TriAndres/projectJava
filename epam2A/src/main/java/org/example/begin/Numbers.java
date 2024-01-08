@@ -5,6 +5,9 @@ public class Numbers {
     private String num;
     private int numLength;
     private int avg;
+    private int even;
+    private int notEven;
+    private boolean flag;
 
     public Numbers(String num) {
         this.num = num;
@@ -45,5 +48,29 @@ public class Numbers {
 
     public void setAvg(int avg) {
         this.avg = avg;
+    }
+
+    public int getEven() {
+        return even;
+    }
+
+    public void setEven(int even) {
+        this.even = even;
+    }
+
+    public int getNotEven() {
+        return notEven;
+    }
+
+    public void setNotEven(int notEven) {
+        this.notEven = notEven;
+    }
+
+    public boolean isFlag() {
+        return flag;
+    }
+
+    public void setFlag(boolean flag) {
+        this.flag = flag;
     }
 }
